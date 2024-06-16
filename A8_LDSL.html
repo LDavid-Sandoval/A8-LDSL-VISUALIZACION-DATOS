@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        h2 {
+            margin-top: 40px;
+        }
+
+        .chart-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .chart {
+            flex: 1 1 calc(33% - 20px);
+            margin: 10px;
+            min-width: 300px;
+        }
+    </style>
+    <!-- Incluir la librería de Google Charts -->
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+        // Cargar la librería de visualización y configurar el paquete que se usará
+        google.charts.load('current', { 'packages': ['corechart'] });
+        google.charts.setOnLoadCallback(drawCharts);
+
+        function drawCharts() {
+            // Crear los datos para el gráfico de líneas de Privación Social
+            var dataPorcentajeSocial = google.visualization.arrayToDataTable([
+                ['Año', 'Porcentaje'],
+                [2008, 76.6],
+                [2010, 74.2],
+                [2012, 74.1],
+                [2014, 72.4],
+                [2016, 70.4],
+                [2018, 71.2]
+            ]);
+
+            // Crear el gráfico de líneas de Privación Social
+            var chartPorcentajeSocial = new google.visualization.LineChart(document.getElementById('chart_porcentaje'));
+            chartPorcentajeSocial.draw(dataPorcentajeSocial, {
+                title: 'Porcentaje de población con al menos una carencia social por año',
+                width: '100%',
+                height: 400
+            });
+
+            // Crear los datos para el gráfico de barras de Privación Social
+            var dataMillonesSocial = google.visualization.arrayToDataTable([
+                ['Año', 'Millones Personas'],
+                [2008, 85.5],
+                [2010, 85],
+                [2012, 86.9],
+                [2014, 86.8],
+                [2016, 86.3],
+                [2018, 89.1]
+            ]);
+
+            // Crear el gráfico de barras de Privación Social
+            var chartMillonesSocial = new google.visualization.BarChart(document.getElementById('chart_millones'));
+            chartMillonesSocial.draw(dataMillonesSocial, {
+                title: 'Población con al menos una carencia social en millones de personas por año',
+                width: '100%',
+                height: 400
+            });
+
+            // Crear los datos para el gráfico de pastel de Privación Social
+            var dataCarenciasSocial = google.visualization.arrayToDataTable([
+                ['Año', 'Carencias Promedio'],
+                ['2008', 2.4],
+                ['2010', 2.3],
+                ['2012', 2.2],
+                ['2014', 2.1],
+                ['2016', 2],
+                ['2018', 2]
+            ]);
+
+            // Crear el gráfico de pastel de Privación Social
+            var chartCarenciasSocial = new google.visualization.PieChart(document.getElementById('chart_carencias'));
+            chartCarenciasSocial.draw(dataCarenciasSocial, {
+                title: 'Carencias promedio por año',
+                width: '100%',
+                height: 400
+            });
+
+            // Crear los datos para el gráfico de líneas de Bienestar
+            var dataPorcentajeBienestar = google.visualization.arrayToDataTable([
+                ['Año', 'Porcentaje'],
+                [2008, 16.8],
+                [2010, 19.4],
+                [2012, 20],
+                [2014, 20.6],
+                [2016, 17.5],
+                [2018, 16.8]
+            ]);
+
+            // Crear el gráfico de líneas de Bienestar
+            var chartPorcentajeBienestar = new google.visualization.LineChart(document.getElementById('chart_porcentaje_bienestar'));
+            chartPorcentajeBienestar.draw(dataPorcentajeBienestar, {
+                title: 'Porcentaje de población con ingreso inferior a la línea de pobreza extrema por ingresos por año',
+                width: '100%',
+                height: 400
+            });
+
+            // Crear los datos para el gráfico de barras de Bienestar
+            var dataMillonesBienestar = google.visualization.arrayToDataTable([
+                ['Año', 'Millones Personas'],
+                [2008, 18.7],
+                [2010, 22.2],
+                [2012, 23.5],
+                [2014, 24.6],
+                [2016, 21.4],
+                [2018, 21]
+            ]);
+
+            // Crear el gráfico de barras de Bienestar
+            var chartMillonesBienestar = new google.visualization.BarChart(document.getElementById('chart_millones_bienestar'));
+            chartMillonesBienestar.draw(dataMillonesBienestar, {
+                title: 'Población con ingreso inferior a la línea de pobreza extrema por ingresos en millones de personas por año',
+                width: '100%',
+                height: 400
+            });
+
+            // Crear los datos para el gráfico de pastel de Bienestar
+            var dataCarenciasBienestar = google.visualization.arrayToDataTable([
+                ['Año', 'Carencias Promedio'],
+                ['2008', 3.1],
+                ['2010', 2.9],
+                ['2012', 2.5],
+                ['2014', 2.5],
+                ['2016', 2.4],
+                ['2018', 2.4]
+            ]);
+
+            // Crear el gráfico de pastel de Bienestar
+            var chartCarenciasBienestar = new google.visualization.PieChart(document.getElementById('chart_carencias_bienestar'));
+            chartCarenciasBienestar.draw(dataCarenciasBienestar, {
+                title: 'Carencias promedio por año',
+                width: '100%',
+                height: 400
+            });
+
+            // Crear los datos para el gráfico de líneas de Pobreza
+            var dataPorcentajePobreza = google.visualization.arrayToDataTable([
+                ['Año', 'Porcentaje'],
+                [2008, 18.7],
+                [2010, 19.9],
+                [2012, 19.8],
+                [2014, 20.5],
+                [2016, 22.6],
+                [2018, 21.9]
+            ]);
+
+            // Crear el gráfico de líneas de Pobreza
+            var chartPorcentajePobreza = new google.visualization.LineChart(document.getElementById('chart_porcentaje_pobreza'));
+            chartPorcentajePobreza.draw(dataPorcentajePobreza, {
+                title: 'Porcentaje de Población no pobre y vulnerable',
+                width: '100%',
+                height: 400
+            });
+
+            // Crear los datos para el gráfico de barras de Pobreza
+            var dataMillonesPobreza = google.visualization.arrayToDataTable([
+                ['Año', 'Millones Personas'],
+                [2008, 20.9],
+                [2010, 22.8],
+                [2012, 23.2],
+                [2014, 24.6],
+                [2016, 27.8],
+                [2018, 27.4]
+            ]);
+
+            // Crear el gráfico de barras de Pobreza
+            var chartMillonesPobreza = new google.visualization.BarChart(document.getElementById('chart_millones_pobreza'));
+            chartMillonesPobreza.draw(dataMillonesPobreza, {
+                title: 'Población no pobre y vulnerable por año',
+                width: '100%',
+                height: 400
+            });
+        }
+    </script>
+</head>
+
+<body>
+    <h1>Dashboard</h1>
+    <h2>Privación Social</h2>
+    <div class="chart-container">
+        <div id="chart_porcentaje" class="chart"></div>
+        <div id="chart_millones" class="chart"></div>
+        <div id="chart_carencias" class="chart"></div>
+    </div>
+    <h2>Bienestar</h2>
+    <div class="chart-container">
+        <div id="chart_porcentaje_bienestar" class="chart"></div>
+        <div id="chart_millones_bienestar" class="chart"></div>
+        <div id="chart_carencias_bienestar" class="chart"></div>
+    </div>
+    <h2>Pobreza</h2>
+    <div class="chart-container">
+        <div id="chart_porcentaje_pobreza" class="chart"></div>
+        <div id="chart_millones_pobreza" class="chart"></div>
+    </div>
+</body>
+
+</html>
